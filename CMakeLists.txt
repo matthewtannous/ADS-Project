@@ -5,10 +5,10 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(ADS_Project
         main.cpp
-        Users/Users.cpp
-        Users/Users.h
-        User/User.cpp
-        User/User.h
-        utils/utils.cpp
-        utils/utils.h
-        Users/Users.cpp)
+        Users.cpp
+        Users.h
+        User.cpp
+        User.h
+        utils.cpp
+        utils.h
+        Users.cpp)

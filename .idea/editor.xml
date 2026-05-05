@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BackendCodeEditorSettings">
+    <option name="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=2DCDC142_002DB19D_002D57C8_002DBCE9_002D97256C499224_002Fd_003AUser_002Ff_003AUser_002Ecpp/@EntryIndexedValue" value="ExplicitlyExcluded" type="string" />
+    <option name="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=2DCDC142_002DB19D_002D57C8_002DBCE9_002D97256C499224_002Fd_003AUser_002Ff_003AUser_002Eh/@EntryIndexedValue" value="ExplicitlyExcluded" type="string" />
+    <option name="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=2DCDC142_002DB19D_002D57C8_002DBCE9_002D97256C499224_002Fd_003AUsers_002Ff_003AUsers_002Ecpp/@EntryIndexedValue" value="ForceIncluded" type="string" />
     <option name="/Default/CodeInspection/Highlighting/InspectionSeverities/=CDeclarationWithImplicitIntType/@EntryIndexedValue" value="WARNING" type="string" />
     <option name="/Default/CodeInspection/Highlighting/InspectionSeverities/=CommentTypo/@EntryIndexedValue" value="DO_NOT_SHOW" type="string" />
     <option name="/Default/CodeInspection/Highlighting/InspectionSeverities/=ConstevalIfIsAlwaysConstant/@EntryIndexedValue" value="WARNING" type="string" />

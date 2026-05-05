@@ -9,22 +9,26 @@
 #include <unordered_map>
 #include <iostream>
 
-#include "../User/User.h"
+#include "User.h"
 using namespace std;
 
 // Stores all users
 class Users {
 public:
     bool login(string username, string password);
-
     bool signup(string username, string password);
 
     // For testing
     void printAllUsers();
 
+    //adds and removes friends using a simple graph
+    void addFriend(string a, string b);
+    void removeFriend(string a, string b);
+
 public:
     // string is the username, User contains all information about the User
     unordered_map<string, User> users;
+
 };
 
 

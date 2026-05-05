@@ -40,3 +40,15 @@ void Users::printAllUsers() {
       cout << element.first << ", " << element.second.getUsername() << ", " << element.second.getPassword() << "\n";
    }
 }
+
+//adds and removes friends using a simple graph
+//uses friend function to access the private functions in user
+void Users::addFriend(string a, string b) {
+   users.at(a).addFriend(b);
+   users.at(b).addFriend(a);
+}
+
+void Users::removeFriend(string a, string b) {
+   users.at(a).removeFriend(b);
+   users.at(b).removeFriend(a);
+}
