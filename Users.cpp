@@ -1,10 +1,6 @@
-//
-// Created by matthew on 5/5/26.
-//
-
 #include "Users.h"
 
-bool Users::login(string username, string password) {
+bool Users::login(const string &username, const string &password) {
    // Search for username
    unordered_map<string, User>::iterator iter = users.find(username);
    if (iter == users.end()) { // User not found
@@ -21,7 +17,7 @@ bool Users::login(string username, string password) {
    }
 }
 
-bool Users::signup(string username, string password) {
+bool Users::signup(const string &username, const string &password) {
    // Search for username
    unordered_map<string, User>::iterator iter = users.find(username);
 

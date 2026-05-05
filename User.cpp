@@ -1,7 +1,3 @@
-//
-// Created by matthew on 5/5/26.
-//
-
 #include "User.h"
 
 string User::getPassword() {
@@ -12,15 +8,7 @@ string User::getUsername() {
     return username;
 }
 
-void User::addFriend(const string& u) {
-    friendsList.push_back(u);
-}
-
-void User::removeFriend(const string& u) {
-    friendsList.remove(u);
-}
-
-string* User::getFriends() {
+string* User::getFriendsList() {
     int size = friendsList.size();
     string* arr = new string[size];
 
@@ -28,6 +16,21 @@ string* User::getFriends() {
     for (const string& f : friendsList) {
         arr[i++] = f;
     }
-
     return arr;
+}
+
+void User::addPost(const Post& p) {
+    postsList.push_back(&p);
+}
+
+void User::removePost(Post& p) {
+    postsList.remove(&p);
+}
+
+void User::addFriend(const string& u) {
+    friendsList.push_back(u);
+}
+
+void User::removeFriend(const string& u) {
+    friendsList.remove(u);
 }

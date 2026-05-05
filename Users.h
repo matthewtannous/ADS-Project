@@ -15,8 +15,8 @@ using namespace std;
 // Stores all users
 class Users {
 public:
-    bool login(string username, string password);
-    bool signup(string username, string password);
+    bool login(const string &username, const string &password);
+    bool signup(const string &username, const string &password);
 
     // For testing
     void printAllUsers();

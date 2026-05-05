@@ -1,12 +1,9 @@
-//
-// Created by matthew on 5/5/26.
-//
-
 #ifndef ADS_PROJECT_USER_H
 #define ADS_PROJECT_USER_H
 
 #include <iostream>
 #include <list>
+#include "Post.h"
 using namespace std;
 
 class User {
@@ -19,8 +16,11 @@ public:
 
     string getUsername();
     string getPassword();
-    string* getFriends();
+    string* getFriendsList();
 
+    //posts are stored individually in each user
+    void addPost(const Post& p);
+    void removePost(Post& p);
 private:
     //add and remove friends individually
     //control them from the users class
@@ -31,8 +31,7 @@ private:
     string username;
     string password;
     list<string> friendsList;
-
-
+    list<Post> postsList;
 };
 
 

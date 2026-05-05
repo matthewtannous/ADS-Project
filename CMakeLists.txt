@@ -11,4 +11,6 @@ add_executable(ADS_Project
         User.h
         utils.cpp
         utils.h
-        Users.cpp)
+        Users.cpp
+        Post.cpp
+        Post.h)
