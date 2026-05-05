@@ -17,6 +17,7 @@ class Users {
 public:
     bool login(const string &username, const string &password);
     bool signup(const string &username, const string &password);
+    bool userExists(const string& username) const;
 
     // For testing
     void printAllUsers();

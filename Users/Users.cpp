@@ -30,6 +30,10 @@ bool Users::signup(const string &username, const string &password) {
    }
 }
 
+bool Users::userExists(const string& username) const {
+   return users.find(username) != users.end();
+}
+
 void Users::printAllUsers() {
    // 'auto' automatically detects type
    for (auto element: users) {
