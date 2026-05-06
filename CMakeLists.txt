@@ -4,23 +4,23 @@ project(ADS_Project)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(ADS_Project
-        App/main.cpp
-        Users/Users.cpp
-        Users/Users.h
-        Users/User.cpp
-        Users/User.h
-        Utils/utils.cpp
-        Utils/utils.h
-        Posts/Post.cpp
-        Posts/Post.h
-        Messaging/Message.h
-        Messaging/Message.cpp
-        Messaging/MessageManager.h
-        Messaging/MessageManager.cpp
-        Notifications/Notification.h
-        Notifications/Notification.cpp
-        Notifications/NotificationManager.h
-        Notifications/NotificationManager.cpp)
+        src/main.cpp
+        src/Users.cpp
+        src/Users.h
+        src/User.cpp
+        src/User.h
+        src/utils.cpp
+        src/utils.h
+        src/Post.cpp
+        src/Post.h
+        src/Message.h
+        src/Message.cpp
+        src/MessageManager.h
+        src/MessageManager.cpp
+        src/Notification.h
+        src/Notification.cpp
+        src/NotificationManager.h
+        src/NotificationManager.cpp)
 
 target_include_directories(ADS_Project PRIVATE
         App
