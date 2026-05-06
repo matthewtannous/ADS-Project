@@ -14,7 +14,7 @@ public:
     void virtual display();
 
     void addComment(string comment);
-    string* getCommnetsList();
+    string* getCommentsList();
 
 
     bool operator==(Post& other) const {}

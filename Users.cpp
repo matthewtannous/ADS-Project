@@ -1,5 +1,7 @@
 #include "Users.h"
 
+#include "Notification.h"
+
 bool Users::login(const string &username, const string &password) {
    // Search for username
    unordered_map<string, User>::iterator iter = users.find(username);

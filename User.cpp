@@ -1,5 +1,7 @@
 #include "User.h"
 
+#include "Notification.h"
+
 string User::getPassword() {
     return password;
 }
@@ -29,6 +31,7 @@ void User::removePost(const Post p) {
 
 void User::addFriend(const string& u) {
     friendsList.push_back(u);
+    notificationsList.push(Notification(username, "New friend"));
 }
 
 void User::removeFriend(const string& u) {
@@ -37,6 +40,7 @@ void User::removeFriend(const string& u) {
 
 void User::addCloseFriend(const string& u) {
     closeFriendsList.push_back(u);
+    notificationsList.push(Notification(username, "New close friend"));
 }
 
 void User::removeCloseFriend(const string& u) {

@@ -4,7 +4,9 @@
 #include <iostream>
 #include <list>
 #include <vector>
+#include <stack>
 
+#include "Notification.h"
 #include "Post.h"
 using namespace std;
 
@@ -37,6 +39,7 @@ private:
     list<string> friendsList;
     list<string> closeFriendsList;
     list<Post> postsList;
+    stack<Notification> notificationsList;
 };
 
 
