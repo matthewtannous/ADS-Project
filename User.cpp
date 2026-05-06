@@ -22,11 +22,11 @@ string* User::getFriendsList() {
 }
 
 void User::addPost(const Post p) {
-    postsList.push_back(&p);
+    postsList.push_back(p);
 }
 
 void User::removePost(const Post p) {
-    postsList.remove(&p);
+    postsList.remove(p);
 }
 
 void User::addFriend(const string& u) {

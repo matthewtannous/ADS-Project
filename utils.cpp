@@ -1,7 +1,3 @@
-//
-// Created by matthew on 5/5/26.
-//
-
 #include "utils.h"
 
 #include <array>

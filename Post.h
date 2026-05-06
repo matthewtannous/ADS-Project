@@ -7,17 +7,15 @@ using namespace std;
 
 class Post {
 public:
-    Post(string username, string description) : username(username), description(description) {
-        postId = ++ID_COUNTER;
-    };
-    //make class abstract -> text, img, vid
-    void virtual display();
+    Post(string username, string description);
+    // make class abstract -> text, img, vid
+    // void virtual display(); // COMMENTED OUT for compiling
 
     void addComment(string comment);
     string* getCommentsList();
 
 
-    bool operator==(Post& other) const {}
+    bool operator==(const Post& other) const;
 
 private:
     //unique id in order to distinguish posts

@@ -1,12 +1,15 @@
 #include "Post.h"
-#include "Users.h"
+// #include "Users.h"
+
+// Static variable must be initialized before incrementing it
+int Post::ID_COUNTER = 0; 
 
 Post::Post(string username, string description) : username(username), description(description) {
     postId = ++ID_COUNTER;
 }
 
 
-bool Post::operator==(Post &other) const {
+bool Post::operator==(const Post &other) const {
     return postId == other.postId;
 }
 
