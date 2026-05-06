@@ -8,7 +8,9 @@
 
 #include <unordered_map>
 #include <iostream>
+#include <list>
 
+#include "Message.h"
 #include "User.h"
 using namespace std;
 
@@ -28,10 +30,10 @@ public:
     void addCloseFriend(string a, string b);
     void removeCloseFriend(string a, string b);
 
-public:
+private:
     // string is the username, User contains all information about the User
     unordered_map<string, User> users;
-
+    //list<Conversation> messagesList;
 };
 
 
