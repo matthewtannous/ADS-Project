@@ -7,16 +7,17 @@ using namespace std;
 
 class Post {
 public:
-    Post(string username, string description);
-
+    Post(string username, string description) : username(username), description(description) {
+        postId = ++ID_COUNTER;
+    };
     //make class abstract -> text, img, vid
     void virtual display();
 
     void addComment(string comment);
+    string* getCommnetsList();
 
-    string *getCommentsList();
 
-    bool operator==(Post &other) const;
+    bool operator==(Post& other) const {}
 
 private:
     //unique id in order to distinguish posts
@@ -28,5 +29,6 @@ private:
     int likesCount = 0;
     list<string> commentsList;
 };
+
 
 #endif //ADS_PROJECT_POST_H
