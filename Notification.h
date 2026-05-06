@@ -1,0 +1,10 @@
+#ifndef ADS_PROJECT_NOTIFICATION_H
+#define ADS_PROJECT_NOTIFICATION_H
+
+
+class Notification {
+
+};
+
+
+#endif //ADS_PROJECT_NOTIFICATION_H
