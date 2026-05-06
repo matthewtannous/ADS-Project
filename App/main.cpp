@@ -6,7 +6,6 @@
 using namespace std;
 
 int main() {
-    /*
     Users users; // List of all users
     // cout << users.users.size();
     int choice;
@@ -37,5 +36,4 @@ int main() {
                 cout << "Exiting...";
         }
     } while (choice != 3);
-    */
 }

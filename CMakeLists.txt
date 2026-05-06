@@ -11,7 +11,6 @@ add_executable(ADS_Project
         Users/User.h
         Utils/utils.cpp
         Utils/utils.h
-        Users/Users.cpp
         Posts/Post.cpp
         Posts/Post.h
         Messaging/Message.h

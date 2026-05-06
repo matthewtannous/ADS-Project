@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <list>
+#include <vector>
+
 #include "Post.h"
 using namespace std;
 
@@ -20,7 +22,7 @@ public:
 
     //posts are stored individually in each user
     void addPost(const Post& p);
-    void removePost(Post& p);
+    void removePost(const Post& p);
 private:
     //add and remove friends individually
     //control them from the users class
@@ -30,8 +32,8 @@ private:
 private:
     string username;
     string password;
-    list<string> friendsList;
-    list<Post> postsList;
+    vector<string> friendsList;
+    vector<Post> postsList;
 };
 
 
