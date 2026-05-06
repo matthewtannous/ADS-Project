@@ -1,4 +1,4 @@
-#include "src/User.h"
+#include "User.h"
 
 string User::getPassword() {
     return password;

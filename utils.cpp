@@ -2,7 +2,7 @@
 // Created by matthew on 5/5/26.
 //
 
-#include "src/utils.h"
+#include "utils.h"
 
 #include <array>
 using namespace std;
