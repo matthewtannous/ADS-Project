@@ -1,6 +1,7 @@
 #include "Users.h"
 
 #include "Notification.h"
+#include <utility>
 
 bool Users::login(const string &username, const string &password) {
    // Search for username
@@ -63,4 +64,22 @@ void Users::addCloseFriend(string a, string b) {
 void Users::removeCloseFriend(string a, string b) {
    users.at(a).removeCloseFriend(b);
    users.at(b).removeCloseFriend(a);
+}
+
+// Code for Conversation
+Users::Conversation::Conversation(string user1, string user2)
+   : user1(user1), user2(user2) {}
+
+
+// Insert message
+void Users::Conversation::addMessage(string sender, string message) {
+   // Add message at the beginning so users see newest messages first and for faster insertion
+   messages.push_front({message, sender == user1});
+}
+
+// Displays all messages
+void Users::Conversation::showMessages() {
+   for (pair<string, bool> message : messages) {
+      cout << (message.second ? user1 : user2) << ": " << message.first << "\n";
+   }
 }
