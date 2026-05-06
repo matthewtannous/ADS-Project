@@ -25,6 +25,8 @@ public:
     //adds and removes friends using a simple graph
     void addFriend(string a, string b);
     void removeFriend(string a, string b);
+    void addCloseFriend(string a, string b);
+    void removeCloseFriend(string a, string b);
 
 public:
     // string is the username, User contains all information about the User
