@@ -52,3 +52,13 @@ void Users::removeFriend(string a, string b) {
    users.at(a).removeFriend(b);
    users.at(b).removeFriend(a);
 }
+
+void Users::addCloseFriend(string a, string b) {
+   users.at(a).addFriend(b);
+   users.at(b).addFriend(a);
+}
+
+void Users::removeCloseFriend(string a, string b) {
+   users.at(a).removeCloseFriend(b);
+   users.at(b).removeCloseFriend(a);
+}

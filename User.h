@@ -21,19 +21,22 @@ public:
     string* getFriendsList();
 
     //posts are stored individually in each user
-    void addPost(const Post& p);
-    void removePost(const Post& p);
+    void addPost(const Post p);
+    void removePost(const Post p);
 private:
     //add and remove friends individually
     //control them from the users class
     void addFriend(const string& u);
     void removeFriend(const string& u);
+    void addCloseFriend(const string& u);
+    void removeCloseFriend(const string& u);
 
 private:
     string username;
     string password;
-    vector<string> friendsList;
-    vector<Post> postsList;
+    list<string> friendsList;
+    list<string> closeFriendsList;
+    list<Post> postsList;
 };
 
 
