@@ -48,3 +48,25 @@ void User::addCloseFriend(const string& u) {
 void User::removeCloseFriend(const string& u) {
     closeFriendsList.remove(u);
 }
+
+bool User::setPassword() {
+    string inputPassword;
+    while (true) {
+        cout << "Enter your current password: ";
+        cin >> inputPassword;
+
+        if (inputPassword == password) {
+            cout << "Enter your new password: ";
+            cin >> password; // Can add checks for length, uppercase and lowercase...
+            return true;
+        } else if (inputPassword == "Q") {
+            cout << "Stopped changing password\n";
+            return false;
+        } else {
+            cout << "Incorrect password. Try again, or enter Q to stop.\n ";
+            return false;
+        }
+    }
+
+    return false;
+}

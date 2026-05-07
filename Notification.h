@@ -8,7 +8,7 @@ class Notification {
 public:
     string username;
     string description;
-    bool isRead = false;
+    bool isRead;
     Notification(string username, string description);
     void markAsRead();
 };

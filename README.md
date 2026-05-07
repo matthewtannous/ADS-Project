@@ -1,6 +1,9 @@
 # ADS-Project
 
+Advanced Data Structures project.
+
+### Other features
 messages
-alorithm??
+algorithm??
 repost
 post...

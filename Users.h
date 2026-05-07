@@ -18,6 +18,7 @@ using namespace std;
 // Stores all users
 class Users {
 private:
+    // Conversation represents one converstation between 2 users
     class Conversation {
         public:
         // users in conversation
@@ -55,4 +56,3 @@ private:
 
 
 #endif //ADS_PROJECT_USERS_H
-

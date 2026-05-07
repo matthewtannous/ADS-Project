@@ -22,6 +22,8 @@ public:
     string getPassword();
     string* getFriendsList();
 
+    bool setPassword();
+
     //posts are stored individually in each user
     void addPost(const Post p);
     void removePost(const Post p);
