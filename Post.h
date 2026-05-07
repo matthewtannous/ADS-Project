@@ -6,14 +6,28 @@
 using namespace std;
 
 class Post {
+
+/*
+ Use private class for comments instead of forest tree
+ each comment points to the one it is replying to
+ the comments replying to the post directly point to null
+ this builds a tree indirectly and allows for more flexibility and easier scalability and traversal than a messy forest tree
+ */
+private:
+    struct Comment {
+        public:
+        string commenterUsername;
+        string description;
+        Comment* parent = nullptr;
+    };
+
 public:
     Post(string username, string description);
     // make class abstract -> text, img, vid
     // void virtual display(); // COMMENTED OUT for compiling
 
-    void addComment(string comment);
-    string* getCommentsList();
-
+    void addComment(Comment c);
+    Comment* getCommentsList() const;
 
     bool operator==(const Post& other) const;
 
@@ -25,7 +39,8 @@ private:
     string username;
     string description;
     int likesCount = 0;
-    list<string> commentsList;
+    //store all comments in a list. reconstruct later.
+    list<Comment> commentsList;
 };
 
 

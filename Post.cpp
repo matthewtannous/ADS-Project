@@ -13,17 +13,17 @@ bool Post::operator==(const Post &other) const {
     return postId == other.postId;
 }
 
-void Post::addComment(string comment) {
-    commentsList.push_back(comment);
+void Post::addComment(Comment c) {
+    commentsList.push_back(c);
 }
 
-string *Post::getCommentsList() {
+Post::Comment *Post::getCommentsList() const {
     int size = commentsList.size();
-    string *arr = new string[size];
+    Comment *arr = new Comment[size];
 
     int i = 0;
-    for (const string &str: commentsList) {
-        arr[i++] = str;
+    for (const Comment &c: commentsList) {
+        arr[i++] = c;
     }
     return arr;
 }

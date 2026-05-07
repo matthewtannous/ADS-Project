@@ -38,9 +38,13 @@ private:
 private:
     string username;
     string password;
+    //uses adjacency lists to  keep track of friends and close friends
+    //the username can be direcly used in the hashmap later on to get to the user -> no need for pointers
     list<string> friendsList;
     list<string> closeFriendsList;
+    //stores all posts in a linked list
     list<Post> postsList;
+    //stores all notifications
     stack<Notification> notificationsList;
 };
 
