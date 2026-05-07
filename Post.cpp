@@ -27,3 +27,7 @@ Post::Comment *Post::getCommentsList() const {
     }
     return arr;
 }
+
+string Post::getDescription() const {
+    return description;
+}

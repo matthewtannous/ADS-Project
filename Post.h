@@ -28,6 +28,7 @@ public:
 
     void addComment(Comment c);
     Comment* getCommentsList() const;
+    string getDescription() const;
 
     bool operator==(const Post& other) const;
 

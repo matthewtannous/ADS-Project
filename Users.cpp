@@ -37,10 +37,16 @@ bool Users::userExists(const string& username) const {
    return users.find(username) != users.end();
 }
 
+User* Users::getUser(const string& username) {
+   auto iter = users.find(username);
+   if (iter == users.end()) return nullptr;
+   return &iter->second;
+}
+
 void Users::printAllUsers() {
    // 'auto' automatically detects type
    for (auto element: users) {
-      cout << element.first << ", " << element.second.getUsername() << ", " << element.second.getPassword() << "\n";
+      cout << element.second.getUsername() << ", " << element.second.getPassword() << "\n";
    }
 }
 
@@ -57,8 +63,8 @@ void Users::removeFriend(string a, string b) {
 }
 
 void Users::addCloseFriend(string a, string b) {
-   users.at(a).addFriend(b);
-   users.at(b).addFriend(a);
+   users.at(a).addCloseFriend(b);
+   users.at(b).addCloseFriend(a);
 }
 
 void Users::removeCloseFriend(string a, string b) {

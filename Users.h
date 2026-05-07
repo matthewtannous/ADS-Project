@@ -38,6 +38,7 @@ public:
     bool login(const string &username, const string &password);
     bool signup(const string &username, const string &password);
     bool userExists(const string& username) const;
+    User* getUser(const string& username);
 
     // For testing
     void printAllUsers();

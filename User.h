@@ -26,7 +26,9 @@ public:
 
     //posts are stored individually in each user
     void addPost(const Post p);
-    void removePost(const Post p);
+    void displayPosts();
+    bool removePostAt(int index);
+    void displayFriends();
 private:
     //add and remove friends individually
     //control them from the users class
