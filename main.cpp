@@ -40,7 +40,7 @@ int main() {
                 users.printAllUsers();
                 break;
             default:
-                cout << "Exiting...";
+                cout << "Exiting...\n";
         }
     } while (choice != 3);
 

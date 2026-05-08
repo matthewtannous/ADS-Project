@@ -100,8 +100,7 @@ bool User::setPassword() {
             cout << "Stopped changing password\n";
             return false;
         } else {
-            cout << "Incorrect password. Try again, or enter Q to stop.\n ";
-            return false;
+            cout << "Incorrect password. Try again, or enter Q to stop.\n";
         }
     }
 
