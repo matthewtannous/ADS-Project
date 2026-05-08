@@ -11,7 +11,7 @@ string User::getUsername() {
     return username;
 }
 
-string* User::getFriendsList() {
+string* User::getFriendsList() const{
     int size = friendsList.size();
     string* arr = new string[size];
 
@@ -22,7 +22,7 @@ string* User::getFriendsList() {
     return arr;
 }
 
-void User::addPost(const Post p) {
+void User::addPost(Post p) {
     postsList.push_back(p);
 }
 
@@ -61,29 +61,26 @@ void User::displayFriends() {
 }
 
 void User::addFriend(const string& u) {
-    if (find(friendsList.begin(), friendsList.end(), u) != friendsList.end()) return;
-    friendsList.push_back(u);
+    auto inserted = friendsList.insert(u); // returns pair<iterator, bool>
+    if (!inserted.second) return; // already exists
     notificationsList.push(Notification(username, "New friend"));
 }
 
 void User::removeFriend(const string& u) {
-    friendsList.remove(u);
-    // can't be a close friend without being a friend
-    closeFriendsList.remove(u);
+    friendsList.erase(u);          // removes if exists
+    closeFriendsList.erase(u);     // must also remove from close friends
 }
 
 void User::addCloseFriend(const string& u) {
-    if (find(closeFriendsList.begin(), closeFriendsList.end(), u) != closeFriendsList.end()) return;
-    closeFriendsList.push_back(u);
-    // close friends are also friends
-    if (find(friendsList.begin(), friendsList.end(), u) == friendsList.end()) {
-        friendsList.push_back(u);
-    }
+    auto inserted = closeFriendsList.insert(u);
+    if (!inserted.second) return; // already exists
+    // ensure it's also in friends
+    friendsList.insert(u);
     notificationsList.push(Notification(username, "New close friend"));
 }
 
 void User::removeCloseFriend(const string& u) {
-    closeFriendsList.remove(u);
+    closeFriendsList.erase(u);
 }
 
 bool User::setPassword() {

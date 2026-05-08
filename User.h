@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include <list>
-#include <vector>
 #include <stack>
+#include <set>
 
 #include "Notification.h"
 #include "Post.h"
@@ -20,12 +20,12 @@ public:
 
     string getUsername();
     string getPassword();
-    string* getFriendsList();
+    string* getFriendsList() const;
 
     bool setPassword();
 
     //posts are stored individually in each user
-    void addPost(const Post p);
+    void addPost(Post p);
     void displayPosts();
     bool removePostAt(int index);
     void displayFriends();
@@ -42,8 +42,8 @@ private:
     string password;
     //uses adjacency lists to  keep track of friends and close friends
     //the username can be direcly used in the hashmap later on to get to the user -> no need for pointers
-    list<string> friendsList;
-    list<string> closeFriendsList;
+    set<string> friendsList;
+    set<string> closeFriendsList;
     //stores all posts in a linked list
     list<Post> postsList;
     //stores all notifications
