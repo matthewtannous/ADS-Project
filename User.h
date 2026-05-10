@@ -10,6 +10,7 @@
 #include "Post.h"
 using namespace std;
 
+// A single user account: credentials, friends, posts, and notifications
 class User {
     //access the private add and remove functions
     friend class Users;
@@ -26,9 +27,22 @@ public:
 
     //posts are stored individually in each user
     void addPost(Post p);
+    // Print summary list of posts (description only)
     void displayPosts();
+    // Print posts with like and comment counts
+    void displayPostsDetailed() const;
     bool removePostAt(int index);
+    // Return a pointer to the post at the given index, or nullptr if out of range
+    Post* getPostAt(int index);
     void displayFriends();
+
+    // True if `other` is in this user's friends list
+    bool isFriend(const string& other) const;
+
+    // Push a notification onto this user's stack
+    void receiveNotification(const Notification& n);
+    // Print notifications newest-first without consuming the stack
+    void displayNotifications() const;
 private:
     //add and remove friends individually
     //control them from the users class
@@ -40,16 +54,15 @@ private:
 private:
     string username;
     string password;
-    //uses adjacency lists to  keep track of friends and close friends
-    //the username can be direcly used in the hashmap later on to get to the user -> no need for pointers
+    //adjacency-list neighbors stored as sets of usernames; the username
+    //can be used directly in the Users hashmap to reach the other user
     set<string> friendsList;
     set<string> closeFriendsList;
     //stores all posts in a linked list
     list<Post> postsList;
-    //stores all notifications
+    //stack of notifications, newest on top (LIFO)
     stack<Notification> notificationsList;
 };
 
 
 #endif //ADS_PROJECT_USER_H
-
