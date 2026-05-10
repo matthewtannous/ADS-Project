@@ -1,3 +1,9 @@
+/**
+ * Notification.h
+ * A single alert addressed to a user (e.g., a like, comment, message, or
+ * friend request). Users keep a stack of these and display them newest-first.
+ */
+
 #ifndef ADS_PROJECT_NOTIFICATION_H
 #define ADS_PROJECT_NOTIFICATION_H
 #include <queue>

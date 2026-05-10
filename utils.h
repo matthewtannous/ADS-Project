@@ -1,3 +1,8 @@
+/**
+ * utils.h
+ * Small console-input helpers shared across the app.
+ */
+
 #ifndef ADS_PROJECT_UTILS_H
 #define ADS_PROJECT_UTILS_H
 

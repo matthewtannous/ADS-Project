@@ -1,3 +1,11 @@
+/**
+ * User.h
+ * One user account: stores credentials, friend/close-friend lists (sets of
+ * usernames), the user's posts (linked list), and a stack of notifications.
+ * The Users class is declared a friend so it can mutate friend lists from
+ * the central manager.
+ */
+
 #ifndef ADS_PROJECT_USER_H
 #define ADS_PROJECT_USER_H
 

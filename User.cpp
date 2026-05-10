@@ -1,3 +1,9 @@
+/**
+ * User.cpp
+ * Implements the User class: post management, friend/close-friend
+ * mutations, password change, and the notification stack.
+ */
+
 #include "User.h"
 
 #include <algorithm>

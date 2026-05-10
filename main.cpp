@@ -1,3 +1,10 @@
+/**
+ * main.cpp
+ * Program entry point and console UI loop. Shows the pre-login menu
+ * (register/login/exit) and, once authenticated, the dashboard menu
+ * for posts, friends, messages, and notifications.
+ */
+
 #include <array>
 #include <iostream>
 #include "Users.h"

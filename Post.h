@@ -1,3 +1,9 @@
+/**
+ * Post.h
+ * A user post with text, a unique ID, a set of likers,
+ * and an ordered list of comments. 
+ */
+
 #ifndef ADS_PROJECT_POST_H
 #define ADS_PROJECT_POST_H
 

@@ -1,3 +1,9 @@
+/**
+ * Post.cpp
+ * Implements the Post class: unique-ID assignment, likes, 
+ * and comments with optional reply-to parent linking.
+ */
+
 #include "Post.h"
 
 #include <iostream>

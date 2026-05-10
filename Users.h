@@ -1,6 +1,7 @@
 /**
- * A class to store all users.
- * Uses std::unordered_map, which is a C++ hashmap implementation
+ * Users.h
+ * Stores every account in the system and orchestrates cross-user actions
+ * (friendships, likes, comments, messages, notifications).
  */
 
 #ifndef ADS_PROJECT_USERS_H

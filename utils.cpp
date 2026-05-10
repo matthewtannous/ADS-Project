@@ -1,3 +1,9 @@
+/**
+ * utils.cpp
+ * Implements console-input helpers. getUserInfo prompts for a username
+ * and password and returns them as a 2-element array.
+ */
+
 #include "utils.h"
 
 #include <array>

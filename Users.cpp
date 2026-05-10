@@ -1,3 +1,10 @@
+/**
+ * Users.cpp
+ * Implements account management (login/signup), the friendship graph,
+ * cross-user actions (likes, comments, messages) with authorization and
+ * notifications, and the Conversation inner class used for direct messages.
+ */
+
 #include "Users.h"
 
 #include <utility>
