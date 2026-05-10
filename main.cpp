@@ -5,11 +5,11 @@
 
 using namespace std;
 
+// Runs the logged-in user dashboard until the user logs out
 void run(array<string, 2> &userInfo, Users &users);
 
 int main() {
     Users users; // List of all users
-    // cout << users.users.size();
     int choice;
     array<string, 2> userInfo;
 
@@ -18,7 +18,7 @@ int main() {
                 "1. Register\n"
                 "2. Login\n"
                 "3. Exit\n"
-                "4. Print all users (testing)\n"; // Add other options later
+                "4. Print all users (testing)\n";
 
         cin >> choice;
 
@@ -52,16 +52,22 @@ void run(array<string, 2>& userInfo, Users &users) {
     int loggedInChoice;
     do {
         cout << "\nWhat would you like to do?\n"
-                "1. Create a post\n"
-                "2. Remove a post\n"
-                "3. Add a friend\n"
-                "4. Remove a friend\n"
-                "5. Add a close friend\n"
-                "6. Remove a close friend\n"
-                "7. Change password\n"
-                "8. View friends list\n"
-                "9. View my posts\n"
-                "10. Logout\n";
+                "1.  Create a post\n"
+                "2.  Remove a post\n"
+                "3.  View my posts\n"
+                "4.  View a friend's posts\n"
+                "5.  Like a post\n"
+                "6.  Comment on a post\n"
+                "7.  Send a message\n"
+                "8.  View a conversation\n"
+                "9.  View notifications\n"
+                "10. Add a friend\n"
+                "11. Remove a friend\n"
+                "12. Add a close friend\n"
+                "13. Remove a close friend\n"
+                "14. View friends list\n"
+                "15. Change password\n"
+                "16. Logout\n";
         cin >> loggedInChoice;
 
         switch (loggedInChoice) {
@@ -87,6 +93,123 @@ void run(array<string, 2>& userInfo, Users &users) {
                 break;
             }
             case 3: {
+                me->displayPostsDetailed();
+                cout << "Enter post index to see who liked and commented (-1 to skip): ";
+                int idx;
+                cin >> idx;
+                if (idx >= 0) {
+                    Post* p = me->getPostAt(idx);
+                    if (p == nullptr) {
+                        cout << "Invalid post index.\n";
+                    } else {
+                        cout << "Liked by:\n";
+                        p->displayLikers();
+                        cout << "Comments (newest first):\n";
+                        p->displayComments();
+                    }
+                }
+                break;
+            }
+            case 4: {
+                cout << "Enter friend's username: ";
+                string other;
+                cin >> other;
+                if (!users.userExists(other)) {
+                    cout << "User does not exist.\n";
+                    break;
+                }
+                if (other != currentUser && !me->isFriend(other)) {
+                    cout << "Not your friend.\n";
+                    break;
+                }
+                cout << other << "'s posts:\n";
+                users.getUser(other)->displayPostsDetailed();
+                cout << "Enter post index to view comments (-1 to skip): ";
+                int idx;
+                cin >> idx;
+                if (idx >= 0) {
+                    Post* p = users.getUser(other)->getPostAt(idx);
+                    if (p == nullptr) {
+                        cout << "Invalid post index.\n";
+                    } else {
+                        cout << "Comments (newest first):\n";
+                        p->displayComments();
+                    }
+                }
+                break;
+            }
+            case 5: {
+                string owner;
+                cout << "Whose post are you liking? (username): ";
+                cin >> owner;
+                if (!users.userExists(owner)) { cout << "User does not exist.\n"; break; }
+                users.getUser(owner)->displayPostsDetailed();
+                cout << "Enter post index: ";
+                int idx;
+                cin >> idx;
+                if (users.likePost(currentUser, owner, idx)) {
+                    cout << "Liked.\n";
+                }
+                break;
+            }
+            case 6: {
+                string owner;
+                cout << "Whose post are you commenting on? (username): ";
+                cin >> owner;
+                if (!users.userExists(owner)) { cout << "User does not exist.\n"; break; }
+                users.getUser(owner)->displayPostsDetailed();
+                cout << "Enter post index: ";
+                int idx;
+                cin >> idx;
+                Post* p = users.getUser(owner)->getPostAt(idx);
+                if (p == nullptr) { cout << "Invalid post index.\n"; break; }
+                cout << "Existing comments (newest first):\n";
+                p->displayComments();
+                cout << "Reply to another comment? (y/n): ";
+                string ans;
+                cin >> ans;
+                string replyToUser;
+                if (ans == "y" || ans == "Y") {
+                    cout << "Reply to whose comment? (username): ";
+                    cin >> replyToUser;
+                }
+                cout << "Enter comment text: ";
+                string text;
+                cin >> ws;
+                getline(cin, text);
+                if (users.addCommentToPost(currentUser, owner, idx, text, replyToUser)) {
+                    cout << "Comment added.\n";
+                }
+                break;
+            }
+            case 7: {
+                cout << "Send message to (username): ";
+                string other;
+                cin >> other;
+                cout << "Enter message: ";
+                string text;
+                cin >> ws;
+                getline(cin, text);
+                if (users.sendMessage(currentUser, other, text)) {
+                    cout << "Message sent.\n";
+                }
+                break;
+            }
+            case 8: {
+                cout << "Your conversations:\n";
+                users.listConversationsFor(currentUser);
+                cout << "Enter username to view conversation with (or - to cancel): ";
+                string other;
+                cin >> other;
+                if (other == "-") break;
+                if (!users.userExists(other)) { cout << "User does not exist.\n"; break; }
+                users.viewConversation(currentUser, other);
+                break;
+            }
+            case 9:
+                me->displayNotifications();
+                break;
+            case 10: {
                 cout << "Enter username to add as friend: ";
                 string other;
                 cin >> other;
@@ -100,7 +223,7 @@ void run(array<string, 2>& userInfo, Users &users) {
                 }
                 break;
             }
-            case 4: {
+            case 11: {
                 cout << "Enter username to remove from friends: ";
                 string other;
                 cin >> other;
@@ -112,7 +235,7 @@ void run(array<string, 2>& userInfo, Users &users) {
                 }
                 break;
             }
-            case 5: {
+            case 12: {
                 cout << "Enter username to add as close friend: ";
                 string other;
                 cin >> other;
@@ -126,7 +249,7 @@ void run(array<string, 2>& userInfo, Users &users) {
                 }
                 break;
             }
-            case 6: {
+            case 13: {
                 cout << "Enter username to remove from close friends: ";
                 string other;
                 cin >> other;
@@ -138,21 +261,18 @@ void run(array<string, 2>& userInfo, Users &users) {
                 }
                 break;
             }
-            case 7:
-                me->setPassword();
-                break;
-            case 8:
+            case 14:
                 me->displayFriends();
                 break;
-            case 9:
-                me->displayPosts();
+            case 15:
+                me->setPassword();
                 break;
-            case 10:
+            case 16:
                 cout << "Logging out...\n";
                 break;
             default:
                 cout << "Invalid option.\n";
         }
-    } while (loggedInChoice != 10);
+    } while (loggedInChoice != 16);
 
 }
