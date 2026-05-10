@@ -3,8 +3,10 @@
 
 #include <string>
 #include <list>
+#include <set>
 using namespace std;
 
+// A single user post: text, likes, and comments
 class Post {
 
 /*
@@ -18,18 +20,30 @@ private:
         public:
         string commenterUsername;
         string description;
+        // null for top-level comments; otherwise points to the parent comment
         Comment* parent = nullptr;
     };
 
 public:
     Post(string username, string description);
-    // make class abstract -> text, img, vid
-    // void virtual display(); // COMMENTED OUT for compiling
 
-    void addComment(Comment c);
-    Comment* getCommentsList() const;
+    // Add a comment to the post. If replyToUser is non-empty, link this
+    // comment as a reply to the most recent comment by that user.
+    void addComment(const string& commenter, const string& text, const string& replyToUser = "");
+    // Print all comments newest-first, marking replies by parent username
+    void displayComments() const;
+    // Print all users who liked the post
+    void displayLikers() const;
     string getDescription() const;
+    int getPostId() const;
+    string getUsername() const;
+    int getLikesCount() const;
+    int getCommentCount() const;
 
+    // Record a like; the set ensures each user can only like once
+    void like(const string& liker);
+
+    // Two posts are equal iff they share the same unique post ID
     bool operator==(const Post& other) const;
 
 private:
@@ -39,8 +53,9 @@ private:
     //post contents
     string username;
     string description;
-    int likesCount = 0;
-    //store all comments in a list. reconstruct later.
+    //store who liked this post; set keeps likes unique per user
+    set<string> likedBy;
+    //comments stored in insertion order; replies link to a parent comment
     list<Comment> commentsList;
 };
 
