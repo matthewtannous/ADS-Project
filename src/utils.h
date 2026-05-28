@@ -11,4 +11,4 @@
 
 std::array<std::string, 2> getUserInfo();
 
-#endif //ADS_PROJECT_UTILS_H
+#endif // ADS_PROJECT_UTILS_H

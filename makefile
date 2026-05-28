@@ -2,7 +2,7 @@ all: create run
 
 create: $(wildcard *.cpp) $(wildcard *.h)
 	@g++ 								\
-	*.cpp 								\
+	src/*.cpp 								\
 	-o main 							\
 	-pedantic-errors -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion
 

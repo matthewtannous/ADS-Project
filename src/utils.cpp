@@ -10,13 +10,13 @@
 using namespace std;
 
 std::array<string, 2> getUserInfo() {
-    std::array<string, 2> s;
+  std::array<string, 2> s;
 
-    cout << "Enter username: ";
-    cin >> s[0];
+  cout << "Enter username: ";
+  cin >> s[0];
 
-    cout << "Enter password: ";
-    cin >> s[1];
+  cout << "Enter password: ";
+  cin >> s[1];
 
-    return s;
+  return s;
 }
